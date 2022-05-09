@@ -44,7 +44,7 @@ getRandomQuote = (array) => {
   console.log(quoteOutput);
 }
 
-function getRandomColor() {
+getRandomColor = () => {
   let colorOutput = `rgb( Math.floor(Math.random() * 256), Math.floor(Math.random() * 256),  Math.floor(Math.random() * 256) ) `;
   return colorOutput;
   console.log(colorOutput);
@@ -62,7 +62,15 @@ function getRandomColor() {
 /***
  * `printQuote` function
 ***/
+printQuote = () => {
+  let randomColor = getRandomColor();
+  let randomQuote = getRandomQuote();
 
+  let finalHTML = `
+    <p class="quote">${randomQuote.quote}</p>
+    <p class-"source">${randomQuote.source}</p>
+  `;
+}
 
 
 /***

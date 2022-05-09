@@ -32,6 +32,8 @@ const quotes = [
   }
 ];
 
+console.log(quotes);
+
 
 /***
  * `getRandomQuote` function

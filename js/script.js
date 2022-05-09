@@ -32,12 +32,30 @@ const quotes = [
   }
 ];
 
-console.log(quotes);
+// console.log(quotes);
 
 
 /***
  * `getRandomQuote` function
 ***/
+getRandomQuote = (array) => {
+  let quoteOutput = Math.floor( Math.random() * array.length );
+  return array[quoteOutput];
+  console.log(quoteOutput);
+}
+
+function getRandomColor() {
+  let colorOutput = `rgb( Math.floor(Math.random() * 256), Math.floor(Math.random() * 256),  Math.floor(Math.random() * 256) ) `;
+  return colorOutput;
+  console.log(colorOutput);
+}
+
+// const colorValue = () => Math.floor( Math.random() * 256 )
+// function getRandomColor(value) {
+//   let coloOutput: `rgb(${value()}, ${value()}, ${value()} )`;
+//   return colorOutput;
+//   console.log(colorOutput)
+}
 
 
 

@@ -6,7 +6,7 @@ Project 4 - Random Quote Generator
 /***
  * `quotes` array
 ***/
-const quotes = [
+let quotes = [
   {
     quote: "Principles aren't principles if you pick and choose when to use them.",
     source: 'Chidi Anagonye',
@@ -38,9 +38,9 @@ const quotes = [
 /***
  * `getRandomQuote` function
 ***/
-getRandomQuote = (array) => {
-  let quoteOutput = Math.floor( Math.random() * array.length );
-  return array[quoteOutput];
+function getRandomQuote () {
+  return quotes[ Math.floor( Math.random() * quotes.length ) ];
+  return quoteOutput;
   console.log(quoteOutput);
 }
 
@@ -55,7 +55,7 @@ getRandomColor = () => {
 //   let coloOutput: `rgb(${value()}, ${value()}, ${value()} )`;
 //   return colorOutput;
 //   console.log(colorOutput)
-}
+// }
 
 
 
@@ -68,9 +68,28 @@ printQuote = () => {
 
   let finalHTML = `
     <p class="quote">${randomQuote.quote}</p>
-    <p class-"source">${randomQuote.source}</p>
+    <p class-"source">${randomQuote.source}
   `;
+
+  if (randomQuote.citation) {
+    finalHTML += `<span class="citation">${randomQuote.citation}</span>`
+  }
+  if (randomQuote.year) {
+    finalHTML += `<span class="year">${randomQuote.year}</span>`
+  }
+  if (randomQuote.location) {
+    finalHTML += `<span class="location">${randomQuote.location}</span>`
+  }
+
+  finalHTML += `</p>`;
+
+  document.getElementById(`quote-box`).innerHTML = finalHTML;
+  document.body.style.backgroundColor = randomColor;
 }
+
+printQuote()
+
+setInterval(printQuote, 30000);
 
 
 /***

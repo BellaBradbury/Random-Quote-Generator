@@ -1,10 +1,15 @@
 /************************************************
 Treehouse Techdegree:
 Project 4 - Random Quote Generator
+
+***EXCEEDS EXPECTATION GRADE***
+Bella Bradbury
 *************************************************/
 
+
+
 /***
- * `quotes` array
+ * object array of quotes from various types of media
 ***/
 let quotes = [
   {
@@ -32,30 +37,30 @@ let quotes = [
   }
 ];
 
-// console.log(quotes);
-
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function retrieves a random object from quotes array
 ***/
 function getRandomQuote() {
   return quotes[ Math.floor( Math.random() * quotes.length ) ];
   return quoteOutput;
-  // console.log(quoteOutput);
 }
 
 
-
+/***
+ * `getRandomColor` function retrieves 3 random values (from randomValue) to form an rgb based background color randomly
+***/
 const randomValue = () => Math.floor(Math.random() * 256)
 
 function getRandomColor(value) {
   const colorOutput = `rgb( ${randomValue()}, ${randomValue()}, ${randomValue()} )`;
   return colorOutput;
-  // console.log(colorOutput);
 }
 
+
+
 /***
- * `printQuote` function
+ * `printQuote` function defines how quote and color functions will be displayed in the HTML of the app
 ***/
 printQuote = () => {
   let randomColor = getRandomColor();
@@ -84,12 +89,17 @@ printQuote = () => {
 
 printQuote()
 
+
+
+/***
+ * sets printQuote function to auto-refresh every 30 seconds.
+***/
 setInterval(printQuote, 30000);
+
 
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false);

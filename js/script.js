@@ -38,26 +38,21 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
-function getRandomQuote () {
+function getRandomQuote() {
   return quotes[ Math.floor( Math.random() * quotes.length ) ];
   return quoteOutput;
-  console.log(quoteOutput);
+  // console.log(quoteOutput);
 }
 
-getRandomColor = () => {
-  let colorOutput = `rgb( Math.floor(Math.random() * 256), Math.floor(Math.random() * 256),  Math.floor(Math.random() * 256) ) `;
+
+
+const randomValue = () => Math.floor(Math.random() * 256)
+
+function getRandomColor(value) {
+  const colorOutput = `rgb( ${randomValue()}, ${randomValue()}, ${randomValue()} )`;
   return colorOutput;
-  console.log(colorOutput);
+  // console.log(colorOutput);
 }
-
-// const colorValue = () => Math.floor( Math.random() * 256 )
-// function getRandomColor(value) {
-//   let coloOutput: `rgb(${value()}, ${value()}, ${value()} )`;
-//   return colorOutput;
-//   console.log(colorOutput)
-// }
-
-
 
 /***
  * `printQuote` function

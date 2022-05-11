@@ -67,7 +67,7 @@ printQuote = () => {
 
   let finalHTML = `
     <p class="quote">${randomQuote.quote}</p>
-    <p class-"source">${randomQuote.source}
+    <p class="source">${randomQuote.source}
   `;
 
   if (randomQuote.citation) {

@@ -5,6 +5,7 @@ Submitted 5/9/22 ***EXCEEDS EXPECTATIONS***
 
 -SKILLS USED-
 * JavaScript
+* CSS
 * Github
 
 -PROJECT OVERVIEW-

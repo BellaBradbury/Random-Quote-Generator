@@ -1,5 +1,5 @@
 # Build A Random Quote Generator With Javascript
-Team Treehouse - Front End Web Development TechDegree - Project 4
+Team Treehouse - Web Development TechDegree - Project 4
 
 Submitted 5/9/22 ***EXCEEDS EXPECTATIONS***
 

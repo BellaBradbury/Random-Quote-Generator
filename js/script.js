@@ -61,7 +61,7 @@ function getRandomColor(value) {
 /***
  * `printQuote` function defines how quote and color functions will be displayed in the HTML of the app
 ***/
-printQuote = () => {
+let printQuote = () => {
   let randomColor = getRandomColor();
   let randomQuote = getRandomQuote();
 

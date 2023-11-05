@@ -17,8 +17,8 @@
 
 ---DEVELOPER---
 
-[BELLA BRADBURY](bellabradbury.github.io)
-  - [Website](bellabradbury.github.io)
+[BELLA BRADBURY](https://bellabradbury.github.io/)
+  - [Website](https://bellabradbury.github.io/)
   - [GitHub](https://github.com/bellabradbury)
   - [LinkedIn](https://www.linkedin.com/in/bella-bradbury/)
   - [Treehouse](https://teamtreehouse.com/profiles/bellabradbury)

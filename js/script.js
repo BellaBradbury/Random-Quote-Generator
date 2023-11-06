@@ -157,5 +157,5 @@ bellaBtn.addEventListener('focus', (e)=> {
 bellaBtn.addEventListener('blur', (e)=> {
   handleBlur(bellaBtn);
 });
-window.setInterval(printQuote, 30000);
+window.setInterval(printQuote, 10000);
 newBtn.addEventListener("click", printQuote, false);

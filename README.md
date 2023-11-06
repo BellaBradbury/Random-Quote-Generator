@@ -28,9 +28,11 @@
 </br>
 
 `|| *** ----- VERSIONS ----- *** ||`
----2.1--- &nbsp; &nbsp; &nbsp; 11/06/2023
+---2.1--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *UPDATED FEATURES*
     - Page automatic refresh, previously occurring every 30 seconds, now occurs every 10 seconds.
+  - *SYSTEM UPDATES*
+    - Quote data moved to separate file for compartmentalization and code maintainability.
   - *BUG FIXES*
     - Footer button, which was leading to 404 page, now correctly leads to developer's website.
 

@@ -1,9 +1,5 @@
-/** 
- * Treehouse FSJS Techdegree
- * Random Quote Generator - CSS
- */
-
- @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap');
+/* --- GENERAL --- */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:200,400,400i,700,700i&display=swap');
 
 body {
   background-color: rgb(17, 60, 30);
@@ -11,60 +7,126 @@ body {
   font-family: 'Playfair Display', serif;
   padding: 5px;
   transition: background-color 1.5s ease 0.5s, color 2s ease 0.5s;
+  min-height: 100vh;
+  position: relative;
 }
 
-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  width: 95%;
-  max-width: 1100px;
-  margin: auto;
-  padding: 5px;
-}
-
+/* --- TYPOGRAPHY --- */
 h1 {
   text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
+  margin-bottom: 0;
 }
 
-.load-quote {
+/* --- BUTTONS --- */
+button {
   color: white;
   text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
-  width: 12em;
-  max-height: 75px;
+  height: 60px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 15px 0;
+  padding: 15px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   transition: color 2s ease 0.5s;
 }
-
-.load-quote:hover {
+button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-
-.load-quote:focus {     
+button:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.25);
   border: 3px solid rgba(255, 255, 255, 0.75);
   border-radius: 4px;
 }
-
-.container {
-  width: 90%;
-  max-width: 1024px;
-  margin: auto;
+/* 'Show Another Quote' button */
+#load-quote {
+  width: max-content;
+  white-space: nowrap;
+  font-size: 1.15rem;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+/* 'Stop/Start' buttons */
+#play-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+#stop-btn {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#stop-btn img {
+  height: 75%;
   padding: 5px;
 }
+/* 'Developed by' button */
+footer button {
+  color: inherit;
+  font-size: 1rem;
+  width: 100%;
+}
 
+/* --- ENDS OF PAGE --- */
+header, footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+  width: 95%;
+}
+header {
+  align-items: start;
+  padding: 5px;
+}
+footer {
+  white-space: nowrap;
+  flex-direction: column;
+  align-items: baseline;
+  border-top: 2px dashed rgba(255, 255, 255, 0.3);
+  margin-bottom: 2%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+footer p {
+  width: 100%;
+  font-size: small;
+  margin: 1% 0;
+}
+
+/* --- PAGE CONTENT --- */
+.container {
+  width: 80%;
+  max-width: 1024px;
+  margin: 5% auto;
+  padding: 5px;
+  padding-bottom: 150px;
+}
 .quote-box {
   text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
   line-height: 0.5;
   /* opacity w/ transition set in JS*/
 }
-
+.quote:before, .quote:after {
+  font-size: 3rem;
+  line-height: 2.5rem;
+  position: absolute;
+}
+.quote:before {
+  content: '“'; /* special quote mark */
+  top: 0.1em;
+  left: -0.5em;
+}
+.quote:after {
+  content: '”'; /* special quote mark */
+  bottom: -0.1em;
+  position: absolute;
+}
 .quote {
   font-size: 2rem;
   font-weight: 400;
@@ -73,107 +135,35 @@ h1 {
   margin: 0;
   margin-left: 10px;
 }
-
-.quote:before,
-.quote:after {
-  font-size: 3rem;
-  line-height: 2.5rem;
-  position: absolute;
+.source:before {
+  content: "—";
 }
-
-.quote:before {
-  content: "“";
-  top: 0.1em;
-  left: -0.5em;
-}
-
-.quote:after {
-  content: "”";
-  bottom: -0.1em;
-  margin-left: 0.1em;
-  position: absolute;
-}
-
 .source {
   font-size: 1rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
-  margin-right: 4em;
+  margin-right: 1em;
 }
-
-.source:before {
-  content: "—";
+.add-prop::before {
+  content: ", ";
+  font-style: normal;
 }
-
 .citation {
   font-style: italic;
 }
-
-.citation:before {
-  content: ", ";
-  font-style: normal;
+.tag {
+  font-style: italic;
 }
 
-.year:before {
-  content: ", ";
-  font-style: normal;
-}
-
-.tag::before {
-  content: ", ";
-  font-style: normal;
-}
-
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 100%;
-  border-top: 2px dashed rgba(255, 255, 255, 0.3);
-  margin: 5% 0 2% 0;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-}
-footer a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.25rem;
-  width: 25%;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px rgba(50, 50, 50, 0.3);
-  border-radius: 4px;
-  margin-top: 2%;
-  transition: color 2s ease 0.5s;
-}
-footer a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-footer a:focus {
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.25);
-  border: 4px solid rgba(255, 255, 255, 0.75);
-  border-radius: 4px;
-  transition: color 2s ease 0.5s;
-}
-
-footer p {
-  width: 25%;
-}
-
+/* --- MEDIA QUERIES --- */
 @media (min-width: 768px) {
+  /* --- GENERAL --- */
   body {
     padding: 25px;
   }
 
-  header {
-    margin-bottom: 50px;
-  }
-
+  /* --- TYPOGRAPHY --- */
   h1 {
     font-size: 3.5rem;
     height: 73px;
@@ -182,35 +172,63 @@ footer p {
     border-bottom: 4px solid rgba(0, 0, 0, 0.3);
   }
 
-  .load-quote {
+  /* --- BUTTONS --- */
+  button {
+    height: 75px;
+  }
+  #load-quote {
     font-size: 1.5rem;
+    width: 12em;
+  }
+  #stop-btn {
+    width: 75px;
+  }
+  footer button {
+    font-size: 1.25rem;
+    width: 30%;
   }
 
+  /* --- ENDS OF PAGE --- */
+  header, footer {
+    justify-content: space-between;
+  }
+  header {
+    margin-bottom: 50px;
+  }
+  footer {
+    flex-direction: row;
+    /* height */
+  }
+  footer p {
+    width: 25%;
+    font-size: normal;
+    margin: 1em 0;
+  }
+  
+
+  /* --- PAGE CONTENT --- */
   .container {
+    width: 90%;
     padding: 25px 25px 15px 55px;
     background: rgba(0, 0, 0, 0.1);
     border-left: 5px solid rgba(0, 0, 0, 0.3);
     border-radius: 0 4px 4px 0;
   }
-
-  .quote {
-    font-size: 4rem;
-  }
-
   .quote:before,
   .quote:after {
     font-size: 6rem;
   }
-
   .quote:before {
     top: 0.25em;
   }
-
   .quote:after {
     bottom: 0.1em;
   }
-
+  .quote {
+    font-size: 4rem;
+  }
   .source {
     font-size: 1.25rem;
+    margin-right: 4em;
   }
 }

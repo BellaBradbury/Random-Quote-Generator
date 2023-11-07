@@ -95,13 +95,13 @@ function printQuote() {
       <p class="source">${quote.source}
   `;
   if (quote.citation) {
-    htmlBlock += `<span class="citation">${quote.citation}</span>`;
+    htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;
   }
   if (quote.year) {
-    htmlBlock += `<span class="year">${quote.year}</span>`;
+    htmlBlock += `<span class="year add-prop">${quote.year}</span>`;
   }
   if (quote.tag) {
-    htmlBlock += `<span class="tag">${quote.tag}</span>`;
+    htmlBlock += `<span class="tag add-prop">${quote.tag}</span>`;
   }
   htmlBlock += `</p>`;
 
@@ -127,5 +127,5 @@ bellaBtn.addEventListener('focus', (e)=> {
 bellaBtn.addEventListener('blur', (e)=> {
   handleBlur(bellaBtn);
 });
-window.setInterval(printQuote, 10000);
+// window.setInterval(printQuote, 10000);
 newBtn.addEventListener("click", printQuote, false);

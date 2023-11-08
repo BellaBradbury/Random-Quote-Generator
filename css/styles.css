@@ -91,10 +91,10 @@ button:focus {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-#stop-btn {
+.ss-btn {
   display: none;
 }
-#stop-btn img {
+.ss-btn img {
   height: 75%;
   padding: 5px;
 }
@@ -256,7 +256,7 @@ footer p {
   #load-quote {
     font-size: 1.15rem;
   }
-  #stop-btn {
+  .ss-btn {
     width: 60px;
     display: flex;
     justify-content: center;
@@ -291,7 +291,7 @@ footer p {
     font-size: 1.5rem;
     width: 12em;
   }
-  #stop-btn {
+  .ss-btn {
     width: 75px;
   }
   footer button {
@@ -403,7 +403,7 @@ footer p {
   #play-control {
     max-width: 600px;
   }
-  #stop-btn {
+  .ss-btn {
     width: 100px;
   }
   /* 'Developed by' button */

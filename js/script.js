@@ -3,7 +3,9 @@ const body = document.getElementsByTagName('body')[0];
 const quoteBkgd = document.getElementsByClassName('container')[0];
 const quoteCot = document.getElementById('quote-box');
 const newBtn = document.getElementById('load-quote');
-const bellaBtn = document.getElementById('developer')
+const bellaBtn = document.getElementById('developer');
+const stopBtn = document.getElementById('stop-btn');
+const startBtn = document.getElementById('start-btn');
 let history = [
   // i, r, g, b
 ];
@@ -114,6 +116,11 @@ function printQuote() {
   }, 1000);
 }
 
+// ALLOWS SCREEN 200PX-320PX TO ENTER SITE
+document.getElementById('enter-site').addEventListener('click', (e) => {
+  document.getElementById('olay').style.display = 'none';
+})
+
 // RUNS PROGRAM
 newBtn.addEventListener('focus', (e) => {
   handleFocus(newBtn);
@@ -127,5 +134,35 @@ bellaBtn.addEventListener('focus', (e)=> {
 bellaBtn.addEventListener('blur', (e)=> {
   handleBlur(bellaBtn);
 });
-// window.setInterval(printQuote, 10000);
-newBtn.addEventListener("click", printQuote, false);
+let interval = window.setInterval(function(){
+  console.log('i1 refresh')
+  printQuote(); 
+}, 10000);
+newBtn.addEventListener("click", (e => {
+  console.log('i2 refresh')
+  printQuote();
+  console.log(stopBtn.style.display)
+  if (stopBtn.style.display === 'flex') {
+    clearInterval(interval);
+    interval = window.setInterval(function(){
+      console.log('i3 refresh')
+      printQuote(); 
+    }, 10000);
+  } else {
+    console.log('stop btn not active')
+  }
+}));
+stopBtn.addEventListener('click', (e) => {
+  stopBtn.style.display = 'none';
+  startBtn.style.display = 'flex';
+  clearInterval(interval);
+  console.log('stop')
+});
+startBtn.addEventListener('click', (e) => {
+  startBtn.style.display = 'none';
+  stopBtn.style.display = 'flex';
+  interval = window.setInterval(function(){
+    console.log('start')
+    printQuote(); 
+  }, 10000);
+});

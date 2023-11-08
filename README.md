@@ -29,9 +29,11 @@
 
 `|| *** ----- VERSIONS ----- *** ||`
 ---2.1--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
+  - *NEW FEATURES*
+    - Feedback given to users on small screens (<320px) about potential loss of quality.
   - *UPDATED FEATURES*
     - Page automatic refresh, previously occurring every 30 seconds, now occurs every 10 seconds.
-    - App is now responsive to screen size.
+    - App is now visually responsive to screen size.
   - *SYSTEM UPDATES*
     - Quote data moved to separate file for compartmentalization and code maintainability.
   - *BUG FIXES*

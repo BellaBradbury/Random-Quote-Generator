@@ -31,6 +31,7 @@
 ---2.1--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *UPDATED FEATURES*
     - Page automatic refresh, previously occurring every 30 seconds, now occurs every 10 seconds.
+    - App is now responsive to screen size.
   - *SYSTEM UPDATES*
     - Quote data moved to separate file for compartmentalization and code maintainability.
   - *BUG FIXES*

@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:200,400,400i,700,700i&display=swap');
 
-/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --- 200px */
-/* --- OVERLAY --- */
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----- 0px */
+* {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Playfair Display', serif;
+}
 #olay {
   text-align: center;
   z-index: 99;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -15,219 +21,222 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  white-space: wrap;
+  white-space: normal;
   overflow-wrap: break-word;
+  align-items: center;
+  padding: 5px;
+}
+.olay-msg {
+  font-size: 1em;
+  max-width: 80%;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 1em;
+  margin: 0;
+}
+h2 {
+  margin: 0;
+  padding-bottom: 5%;
+  font-size: 1.25em;
+}
+p {
+  margin: 0;
+}
+.olay-end {
+  font-size: 0.5em;
 }
 #olay-stop {
-  display: none;
+  display: block;
 }
 #olay-warn {
-  display: block;
-  width: 95%;
-}
-#olay-warn button {
-  width: 50%;
-}
-
-/* --- GENERAL --- */
-body {
-  background-color: rgb(17, 60, 30);
-  color: white;
-  font-family: 'Playfair Display', serif;
-  padding: 5px;
-  transition: background-color 1.5s ease 0.5s, color 2s ease 0.5s;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- TYPOGRAPHY --- */
-h1 {
-  text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
-  margin-bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.5em;
-}
-
-/* --- BUTTONS --- */
-button {
-  color: white;
-  text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
-  height: 60px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  transition: color 2s ease 0.5s;
-}
-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-button:focus {
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.25);
-  border: 3px solid rgba(255, 255, 255, 0.75);
-  border-radius: 4px;
-}
-/* 'Show Another Quote' button */
-#load-quote {
-  width: max-content;
-  white-space: nowrap;
-  font-size: 1rem;
-}
-/* 'Stop/Start' buttons */
-#play-control {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 320px;
-}
-#play-control button {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.ss-btn {
   display: none;
 }
-.ss-btn img {
-  height: 75%;
-  padding: 5px;
-}
-/* 'Developed by' button */
-footer button {
-  color: inherit;
-  font-size: 0.65rem;
-  width: 100%;
+.content {
+  display: none;
 }
 
-/* --- ENDS OF PAGE --- */
-header, footer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: 0 auto;
-  width: 95%;
-}
-header {
-  align-items: start;
-  padding: 5px;
-  margin-bottom: 0;
-}
-footer {
-  white-space: nowrap;
-  flex-direction: column;
-  align-items: baseline;
-  border-top: 2px dashed rgba(255, 255, 255, 0.3);
-  margin-bottom: 2%;
-  text-align: center;
-  margin-top: auto;
-}
-footer p {
-  width: 100%;
-  font-size: small;
-  margin: 1% 0;
-}
-
-/* --- PAGE CONTENT --- */
-.container {
-  width: 80%;
-  max-width: 1024px;
-  margin: 5% auto;
-  padding: 5px;
-}
-.quote-box {
-  text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
-  line-height: 0.5;
-  /* opacity w/ transition set in JS*/
-}
-.quote:before, .quote:after {
-  font-size: 3rem;
-  line-height: 2.5rem;
-  position: absolute;
-}
-.quote:before {
-  content: '“'; /* special quote mark */
-  top: 0.1em;
-  left: -0.5em;
-}
-.quote:after {
-  content: '”'; /* special quote mark */
-  bottom: -0.1em;
-  position: absolute;
-}
-.quote {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.2;
-  position: relative;
-  margin: 0;
-  margin-left: 10px;
-}
-.source:before {
-  content: "—";
-}
-.source {
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-  text-align: right;
-  margin-right: 1em;
-}
-.add-prop::before {
-  content: ", ";
-  font-style: normal;
-}
-.citation {
-  font-style: italic;
-}
-.tag {
-  font-style: italic;
-}
-
-/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----- 0px */
-@media (max-width:200px) { /* overlay only */
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --- 200px */
+@media (min-width: 200px) {
   * {
-    overflow: hidden;
+    overflow: visible;
   }
-  #olay {
-    text-align: center;
-    z-index: 99;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgb(17, 60, 30);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    white-space: wrap;
-    overflow-wrap: break-word;
-  }
-  .olay-msg {
-    font-size: 1em;
-    max-width: 95%;
-  }
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: 1.25em;
-  }
-  .olay-end {
-    font-size: 0.5em;
-  }
+  /* --- OVERLAY --- */
   #olay-stop {
-    display: block;
+    display: none;
   }
   #olay-warn {
+    display: block;
+  }
+  #olay-warn h2 {
+    padding: 5% 0 2% 0;
+  }
+  #olay-warn button {
+    width: 90%;
+  }
+
+  /* --- GENERAL --- */
+  .content {
     display: none;
+  }
+  body {
+    background-color: rgb(17, 60, 30);
+    color: white;
+    padding: 5px;
+    transition: background-color 1.5s ease 0.5s, color 2s ease 0.5s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* --- TYPOGRAPHY --- */
+  h1 {
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  /* --- BUTTONS --- */
+  .btn {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    transition: color 2s ease 0.5s;
+  }
+  .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .btn:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.75);
+    border-radius: 4px;
+  }
+  /* 'Show Another Quote' button */
+  #load-quote {
+    width: max-content;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+  /* 'Stop/Start' buttons */
+  #play-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 320px;
+  }
+  #play-control button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .ss-btn {
+    display: none;
+  }
+  .ss-btn img {
+    height: 75%;
+    padding: 5px;
+  }
+  /* 'Developed by' button */
+  #developer {
+    color: inherit;
+    font-size: 0.65rem;
+    width: 100%;
+    height: max-content;
+  }
+
+  /* --- ENDS OF PAGE --- */
+  header, footer {
+    /* display: flex; */
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 95%;
+  }
+  header {
+    align-items: start;
+    padding: 5px;
+    margin-bottom: 0;
+  }
+  footer {
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: baseline;
+    border-top: 2px dashed rgba(255, 255, 255, 0.3);
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: auto;
+  }
+  footer p {
+    width: 100%;
+    font-size: small;
+    margin: 1% 0;
+  }
+
+  /* --- PAGE CONTENT --- */
+  .container {
+    width: 80%;
+    max-width: 1024px;
+    margin: 5% auto;
+    padding: 5px;
+  }
+  .quote-box {
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
+    line-height: 0.5;
+    /* opacity w/ transition set in JS*/
+  }
+  .quote:before, .quote:after {
+    font-size: 3rem;
+    line-height: 2.5rem;
+    position: absolute;
+  }
+  .quote:before {
+    content: '“'; /* special quote mark */
+    top: 0.1em;
+    left: -0.5em;
+  }
+  .quote:after {
+    content: '”'; /* special quote mark */
+    bottom: -0.1em;
+    position: absolute;
+  }
+  .quote {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    position: relative;
+    margin: 0;
+    margin-left: 10px;
+  }
+  .source:before {
+    content: "—";
+  }
+  .source {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    text-align: right;
+    margin-right: 1em;
+  }
+  .add-prop::before {
+    content: ", ";
+    font-style: normal;
+  }
+  .citation {
+    font-style: italic;
+  }
+  .tag {
+    font-style: italic;
   }
 }
 
@@ -235,6 +244,12 @@ footer p {
 @media (min-width:320px) {
   #olay {
     display: none;
+  }
+  .content {
+    display: flex;
+  }
+  .container {
+    display: block;
   }
 
   /* --- TYPOGRAPHY --- */
@@ -262,7 +277,7 @@ footer p {
     justify-content: center;
     align-items: center;
   }
-  footer button {
+  #developer {
     font-size: 1rem;
   }
 }
@@ -284,7 +299,7 @@ footer p {
   }
 
   /* --- BUTTONS --- */
-  button {
+  .btn {
     height: 75px;
   }
   #load-quote {
@@ -294,10 +309,11 @@ footer p {
   .ss-btn {
     width: 75px;
   }
-  footer button {
+  #developer {
     font-size: 1.25rem;
     width: 50%;
     margin: 20px 25%;
+    height: max-content;
   }
 
   /* --- ENDS OF PAGE --- */
@@ -364,10 +380,11 @@ footer p {
   }
 
   /* --- BUTTONS --- */
-  footer button {
+  #developer {
     width: 40%;
     order: 2;
     margin: 20px 0;
+    height: max-content;
   }
 }
 
@@ -383,14 +400,14 @@ footer p {
   }
   
   /* --- BUTTONS --- */
-  button {
+  .btn {
     height: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 15px;
     border-width: 4px;
   }
-  button:focus {
+  .btn:focus {
     border-width: 6px;
   }
   /* 'Show Another Quote' button */
@@ -407,9 +424,10 @@ footer p {
     width: 100px;
   }
   /* 'Developed by' button */
-  footer button {
+  #developer {
     font-size: 2rem;
     width: 30%;
+    height: max-content;
   }
   
   /* --- ENDS OF PAGE --- */

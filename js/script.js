@@ -117,11 +117,54 @@ function printQuote() {
 }
 
 // ALLOWS SCREEN 200PX-320PX TO ENTER SITE
-document.getElementById('enter-site').addEventListener('click', (e) => {
-  document.getElementById('olay').style.display = 'none';
-})
+let interval;
 
-// RUNS PROGRAM
+document.getElementById('enter-site').addEventListener('click', (e) => {
+  printQuote();
+  setTimeout(function() {
+    document.getElementById('olay').style.display = 'none';
+    document.getElementsByTagName('header')[0].style.display = 'flex';
+    document.getElementsByTagName('footer')[0].style.display = 'flex';
+  }, 1000);
+  quoteBkgd.style.display = 'block';
+  interval = window.setInterval(function(){
+    console.log('i1 refresh')
+    printQuote(); 
+  }, 10000);
+});
+
+console.log('SCREEN WIDTH:', screen.width)
+
+if (screen.width >= 320) {
+  function firstLoad() {
+    console.log('first load')
+    const randNum = getRandomQuote();
+    const quote = quotes[randNum];
+    
+    let htmlBlock = `
+        <p class="quote">${quote.quote}</p>
+        <p class="source">${quote.source}
+    `;
+    if (quote.citation) {
+      htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;
+    }
+    if (quote.year) {
+      htmlBlock += `<span class="year add-prop">${quote.year}</span>`;
+    }
+    if (quote.tag) {
+      htmlBlock += `<span class="tag add-prop">${quote.tag}</span>`;
+    }
+    htmlBlock += `</p>`;
+    quoteCot.innerHTML = htmlBlock;
+  }
+  firstLoad()
+
+  interval = window.setInterval(function(){
+    console.log('i1 refresh')
+    printQuote(); 
+  }, 10000);
+}
+
 newBtn.addEventListener('focus', (e) => {
   handleFocus(newBtn);
 });
@@ -134,10 +177,6 @@ bellaBtn.addEventListener('focus', (e)=> {
 bellaBtn.addEventListener('blur', (e)=> {
   handleBlur(bellaBtn);
 });
-let interval = window.setInterval(function(){
-  console.log('i1 refresh')
-  printQuote(); 
-}, 10000);
 newBtn.addEventListener("click", (e => {
   console.log('i2 refresh')
   printQuote();

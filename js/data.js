@@ -25,5 +25,10 @@ const quotes = [
     {
       quote: 'Learn the rules like a pro, so you can break them like an artist.',
       source: 'Pablo Picasso'
+    },
+    {
+      quote: 'I never lose. I either win or learn.',
+      source: 'Nelson Mandela',
+      citation: 'Parade'
     }
   ]

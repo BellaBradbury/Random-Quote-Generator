@@ -90,7 +90,6 @@ function getRandomColor() {
   } else {
     styleTag.innerHTML = darkStyles;
   }
-  console.log('STYLE ELEMENT:', styleTag)
   // BUILD CONTRAST CHECKER : https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o#building-the-color-contrast-checker
 
   return `rgba(${r}, ${g}, ${b})`

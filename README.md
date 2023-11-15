@@ -3,7 +3,17 @@
 
 ---APP OVERVIEW---
 
-  &nbsp; &nbsp; &nbsp; This page displays a new random quote & background color upon each content refresh. The refresh could occur via user interaction or in automatic 30 second intervals. Extra care has been taken to ensure that the quote is always readable due to unpredictable background color values.
+  &nbsp; &nbsp; &nbsp; This page displays a new random quote & background color upon each content refresh. The refresh could occur via user interaction or in automatic 10 second intervals which the user can pause or restart. Extra care has been taken to ensure that the quote is always readable due to unpredictable background color values.
+
+  [VISIT APP](bellabradbury.github.io/Random-Quote-Generator/){target="_blank"}
+
+</br>
+
+---HELP---
+  - **'Show another quote' button** - Prints new quote to page and changes background color.
+  - **'Stop' (*square icon*) button** - Stops the automatic page refresh.
+  - **'Start' (*triangle icon*) button** - Starts the automatic page refresh.
+  - **'Developed by Bella Bradbury' button** - Opens developer's portfolio in separate tab.
 
 </br>
 
@@ -17,27 +27,37 @@
 
 ---DEVELOPER---
 
-[BELLA BRADBURY](https://bellabradbury.github.io/)
-  - [Website](https://bellabradbury.github.io/)
+[BELLA BRADBURY](https://bellabradbury.github.io/){target="_blank"}
+  - [Website](https://bellabradbury.github.io/){target="_blank"}
   - [GitHub](https://github.com/bellabradbury)
-  - [LinkedIn](https://www.linkedin.com/in/bella-bradbury/)
-  - [Treehouse](https://teamtreehouse.com/profiles/bellabradbury)
+  - [LinkedIn](https://www.linkedin.com/in/bella-bradbury/){target="_blank"}
+  - [Treehouse](https://teamtreehouse.com/profiles/bellabradbury){target="_blank"}
 
 </br>
 </br>
 </br>
 
 `|| *** ----- VERSIONS ----- *** ||`
+
 ---2.1--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *NEW FEATURES*
+    - Users now have control of automatic page refresh with start/stop button in header.
     - Feedback given to users on small screens (<320px) about potential loss of quality.
+    - Users on small screens (<200px) unable to enter site.
   - *UPDATED FEATURES*
     - Page automatic refresh, previously occurring every 30 seconds, now occurs every 10 seconds.
     - App is now visually responsive to screen size.
+    - More styles dynamically change for better visuals across all potential background colors.
+    - New quotes added for more variation in content.
   - *SYSTEM UPDATES*
     - Quote data moved to separate file for compartmentalization and code maintainability.
+    - All code refactored for optimization and maintenance purposes.
+    - Data maintenance tests added: find amount of quotes available, check for duplicates, & find quotes over 75 character limit.
   - *BUG FIXES*
-    - Footer button, which was leading to 404 page, now correctly leads to developer's website.
+    - Footer button, previously leading to 404 page, now correctly leads to developer's website.
+    - 'Show another quote' button now restarts the timer if automatic quote refresh is active. This ensures the page won't refresh, outside of user interaction, for a minimum of 10 seconds.
+
+</br>
 
 ---2.0--- &nbsp; &nbsp; &nbsp; 11/01/2023
   - *NEW FEATURES*: 

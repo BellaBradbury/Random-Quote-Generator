@@ -5,7 +5,7 @@
 
   &nbsp; &nbsp; &nbsp; This page displays a new random quote & background color upon each content refresh. The refresh could occur via user interaction or in automatic 10 second intervals which the user can pause or restart. Extra care has been taken to ensure that the quote is always readable due to unpredictable background color values.
 
-  [VISIT APP](bellabradbury.github.io/Random-Quote-Generator/){target="_blank"}
+  [VISIT APP](https://bellabradbury.github.io/Random-Quote-Generator/)
 
 </br>
 
@@ -27,11 +27,11 @@
 
 ---DEVELOPER---
 
-[BELLA BRADBURY](https://bellabradbury.github.io/){target="_blank"}
-  - [Website](https://bellabradbury.github.io/){target="_blank"}
+[BELLA BRADBURY](https://bellabradbury.github.io/)
+  - [Website](https://bellabradbury.github.io/)
   - [GitHub](https://github.com/bellabradbury)
-  - [LinkedIn](https://www.linkedin.com/in/bella-bradbury/){target="_blank"}
-  - [Treehouse](https://teamtreehouse.com/profiles/bellabradbury){target="_blank"}
+  - [LinkedIn](https://www.linkedin.com/in/bella-bradbury/)
+  - [Treehouse](https://teamtreehouse.com/profiles/bellabradbury)
 
 </br>
 </br>
@@ -39,7 +39,7 @@
 
 `|| *** ----- VERSIONS ----- *** ||`
 
----2.1--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
+---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*
     - Users now have control of automatic page refresh with start/stop button in header.
     - Feedback given to users on small screens (<320px) about potential loss of quality.

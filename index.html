@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Koulen&family=Zen+Loop:ital@1&display=swap" rel="stylesheet">
-
+    <style id="styles_js">
+      /* DYNAMIC STYLES INSERTED HERE FROM SCRIPT.JS */
+    </style>
   </head>
 
   <body>
@@ -34,10 +36,18 @@
       <h1>Random Quotes</h1>
       <div id="play-control">
         <button id="load-quote" class="btn">Show another quote</button>
-        <button id="stop-btn" class="ss-btn btn"><img src="img/stop.svg" alt="Stop Automatic Quote Refresh"></button>
-        <!-- SVG Credit: https://www.svgrepo.com/svg/314691/square-full-solid -->
-        <button id="start-btn" class="ss-btn hide btn"><img src="img/start.svg" alt="Start Automatic Quote Refresh"></button>
-        <!-- SVG Credit: https://www.svgrepo.com/svg/514197/play -->
+        <button id="stop-btn" class="ss-btn btn">
+          <!-- SVG Credit: https://www.svgrepo.com/svg/314691/square-full-solid -->
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Stop automatic quote refresh.">
+            <path d="M 6 6 L 6 26 L 26 26 L 26 6 L 6 6 z"/>
+          </svg>
+        </button>
+        <button id="start-btn" class="ss-btn hide btn">
+          <!-- SVG Credit: https://www.svgrepo.com/svg/514197/play -->
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Start automatic quote refresh.">
+            <path d="M5.92 24.096q0 1.088 0.928 1.728 0.512 0.288 1.088 0.288 0.448 0 0.896-0.224l16.16-8.064q0.48-0.256 0.8-0.736t0.288-1.088-0.288-1.056-0.8-0.736l-16.16-8.064q-0.448-0.224-0.896-0.224-0.544 0-1.088 0.288-0.928 0.608-0.928 1.728v16.16z"></path>
+          </svg>
+        </button>
       </div>
     </header>
 

@@ -1,15 +1,21 @@
-// GLOBAL VARS
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- GLOBAL VARIABLES */
+const styleTag = document.getElementById('styles_js');
 const body = document.getElementsByTagName('body')[0];
 const quoteBkgd = document.getElementsByClassName('container')[0];
 const quoteCot = document.getElementById('quote-box');
+
+const allBtns = Array.from( document.getElementsByClassName('btn') );
 const newBtn = document.getElementById('load-quote');
-const bellaBtn = document.getElementById('developer');
 const stopBtn = document.getElementById('stop-btn');
 const startBtn = document.getElementById('start-btn');
+const bellaBtn = document.getElementById('developer');
+
+let interval;
 let history = [
   // i, r, g, b
 ];
 
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- RANDOM VALUE */
 // GENERAL FUNCTION TO RETURN RAND VAL & ENSURES DIFFERENT SCREEN EACH REFRESH
 function getRandomVal(max, comp) {
   let randVal = Math.round( Math.random() * (max) + 0 );
@@ -26,6 +32,40 @@ function getRandomVal(max, comp) {
   return randVal;
 }
 
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- - INTERVAL */
+// MANAGES INTERVAL FOR PAGE AUTO-REFRESH
+function startTimer() {
+  interval = window.setInterval(function() {
+    printQuote(); 
+  }, 10000);
+  startBtn.style.display = 'none';
+  stopBtn.style.display = 'flex';
+}
+function stopTimer() {
+  clearInterval(interval);
+  stopBtn.style.display = 'none';
+  startBtn.style.display = 'flex';
+}
+
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --- COLORS */
+// CSS FOR DARK BACKGROUND - DEFAULT
+const darkStyles = `
+  body, .btn {color: white;}
+  h1, .container, footer, .btn {border-color: rgba(255, 255, 255, 0.3);}
+  .container, .btn {background-color: rgba(255, 255, 255, 0.1);}
+  .btn:hover {border-color: rgba(255, 255, 255, 0.1); background-color: rgba(0, 0, 0, 0.1);}
+  .btn:focus {border-color: rgba(255, 255, 255, 0.75); background-color: rgba(0, 0, 0, 0.5);}
+`;
+
+// CSS FOR LIGHT BACKGROUND
+const lightStyles =`
+  body, .btn {color: black;}
+  h1, .container, footer, .btn {border-color: rgba(0, 0, 0, 0.3);}
+  .container, .btn {background-color: rgba(0, 0, 0, 0.1);}
+  .btn:hover {border-color: rgba(0, 0, 0, 0.1); background-color: rgba(255, 255, 255, 0.1);}
+  .btn:focus {border-color: rgba(0, 0, 0, 0.75); background-color: rgba(255, 255, 255, 0.5);}
+`;
+
 // CHECKS COLOR CONTRAST
 function getLuminance(r, g, b) {
   let a = [r, g, b].map(
@@ -38,11 +78,6 @@ function getLuminance(r, g, b) {
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
 }
 
-// RETURNS NEW INDEX TO USE FOR QUOTES ARR
-function getRandomQuote() {
-  return getRandomVal( (quotes.length - 1), 0 );
-}
-
 // SETS COLORS MINDING WCAG CONTRAST FOR EACH QUOTE
 function getRandomColor() {
   let r = getRandomVal(255, 1);
@@ -51,50 +86,33 @@ function getRandomColor() {
 
   const colorLum = getLuminance(r, g, b);  
   if (colorLum > 0.33333) {
-    body.style.color = 'black';
-    newBtn.style.color = 'black';
-    bellaBtn.style.color = 'black';
+    styleTag.innerHTML = lightStyles;
   } else {
-    body.style.color = 'white';
-    newBtn.style.color = 'white';
-    bellaBtn.style.color = 'white';
+    styleTag.innerHTML = darkStyles;
   }
+  console.log('STYLE ELEMENT:', styleTag)
   // BUILD CONTRAST CHECKER : https://dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o#building-the-color-contrast-checker
 
   return `rgba(${r}, ${g}, ${b})`
 }
 
-// SETS BTN FOCUS STATES MINDING CURRENT PAGE COLORS
-function handleFocus(btn) {
-  if (btn.style.color === 'black') {
-    btn.style.border = '4px solid rgba(0, 0, 0, 0.75)';
-    btn.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-  } else {
-    btn.style.border = '4px solid rgba(255, 255, 255, 0.75)';
-    btn.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-  }
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---- QUOTE */
+// RETURNS NEW INDEX TO USE FOR QUOTES ARR
+function getRandomQuote() {
+  return getRandomVal( (quotes.length - 1), 0 );
 }
 
-// RESETS BTN FROM FOCUS
-function handleBlur(btn) {
-  btn.style.border = '2px solid rgba(0, 0, 0, 0.3)';
-  btn.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-}
-
-// CREATES PAGE HTML & CSS - PRINTS TO PAGE
-function printQuote() {
-  newBtn.blur()
-  bellaBtn.blur()
-  quoteCot.style.transition = 'opacity 0.5s ease-in 0s';
-  quoteCot.style.opacity = 0;
-  
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------- PAGE CONTENT */
+// CREATES PAGE HTML & CSS 
+function createQuote() {
   const randNum = getRandomQuote();
   const quote = quotes[randNum];
   const color = getRandomColor();
+  body.style.backgroundColor = color;
   
   let htmlBlock = `
-      <p class="quote">${quote.quote}</p>
-      <p class="source">${quote.source}
+    <p class="quote">${quote.quote}</p>
+    <p class="source">${quote.source}
   `;
   if (quote.citation) {
     htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;
@@ -107,8 +125,19 @@ function printQuote() {
   }
   htmlBlock += `</p>`;
 
-  // prints data to screen with transitions
-  body.style.backgroundColor = color;
+  return htmlBlock
+}
+
+// PRINTS TO PAGE WITH TRANSITION
+function printQuote() {
+  allBtns.forEach( (btn) => {
+    btn.blur();
+  });
+  quoteCot.style.transition = 'opacity 0.5s ease-in 0s';
+  quoteCot.style.opacity = 0;
+
+  let htmlBlock = createQuote();
+  
   setTimeout(function() {
     quoteCot.innerHTML = htmlBlock;
     quoteCot.style.transition = 'opacity 1s ease-out 0s';
@@ -116,92 +145,41 @@ function printQuote() {
   }, 1000);
 }
 
+/* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --- EVENTS */
 // ALLOWS SCREEN 200PX-320PX TO ENTER SITE
-let interval;
-
 document.getElementById('enter-site').addEventListener('click', (e) => {
-  printQuote();
+  let htmlBlock = createQuote();
+  quoteCot.innerHTML = htmlBlock;
+
   setTimeout(function() {
     document.getElementById('olay').style.display = 'none';
     document.getElementsByTagName('header')[0].style.display = 'flex';
     document.getElementsByTagName('footer')[0].style.display = 'flex';
   }, 1000);
+  
   quoteBkgd.style.display = 'block';
-  interval = window.setInterval(function(){
-    console.log('i1 refresh')
-    printQuote(); 
-  }, 10000);
+  startTimer()
 });
 
-console.log('SCREEN WIDTH:', screen.width)
-
+// SETS STANDARD PAGE IF SCREEN IS 320PX OR WIDER
 if (screen.width >= 320) {
-  function firstLoad() {
-    console.log('first load')
-    const randNum = getRandomQuote();
-    const quote = quotes[randNum];
-    
-    let htmlBlock = `
-        <p class="quote">${quote.quote}</p>
-        <p class="source">${quote.source}
-    `;
-    if (quote.citation) {
-      htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;
-    }
-    if (quote.year) {
-      htmlBlock += `<span class="year add-prop">${quote.year}</span>`;
-    }
-    if (quote.tag) {
-      htmlBlock += `<span class="tag add-prop">${quote.tag}</span>`;
-    }
-    htmlBlock += `</p>`;
-    quoteCot.innerHTML = htmlBlock;
-  }
-  firstLoad()
-
-  interval = window.setInterval(function(){
-    console.log('i1 refresh')
-    printQuote(); 
-  }, 10000);
+  let htmlBlock = createQuote();
+  quoteCot.innerHTML = htmlBlock;
+  startTimer()
 }
 
-newBtn.addEventListener('focus', (e) => {
-  handleFocus(newBtn);
-});
-newBtn.addEventListener('blur', (e)=> {
-  handleBlur(newBtn);
-});
-bellaBtn.addEventListener('focus', (e)=> {
-  handleFocus(bellaBtn);
-});
-bellaBtn.addEventListener('blur', (e)=> {
-  handleBlur(bellaBtn);
-});
+// REFRESHES PAGE UPON USER 'SHOW ANOTHER' CLICK
 newBtn.addEventListener("click", (e => {
-  console.log('i2 refresh')
   printQuote();
-  console.log(stopBtn.style.display)
   if (stopBtn.style.display === 'flex') {
-    clearInterval(interval);
-    interval = window.setInterval(function(){
-      console.log('i3 refresh')
-      printQuote(); 
-    }, 10000);
+    stopTimer();
+    printQuote();
+    startTimer();
   } else {
-    console.log('stop btn not active')
+    printQuote();
   }
 }));
-stopBtn.addEventListener('click', (e) => {
-  stopBtn.style.display = 'none';
-  startBtn.style.display = 'flex';
-  clearInterval(interval);
-  console.log('stop')
-});
-startBtn.addEventListener('click', (e) => {
-  startBtn.style.display = 'none';
-  stopBtn.style.display = 'flex';
-  interval = window.setInterval(function(){
-    console.log('start')
-    printQuote(); 
-  }, 10000);
-});
+
+// PLAY BUTTONS START & STOP AUTO-PAGE REFRESH UPON USER ACTION
+stopBtn.addEventListener('click', stopTimer);
+startBtn.addEventListener('click', startTimer);

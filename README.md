@@ -1,6 +1,5 @@
 # A RANDOM QUOTE GENERATOR
 
-testing
 
 ---APP OVERVIEW---
 

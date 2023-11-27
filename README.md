@@ -82,11 +82,11 @@
 `|| *** ----- HISTORY ----- *** ||`
 
 - App Re-Code
-  - V 2.0 built 11/01/2023 to ***EXCEEDS EXPECTATIONS*** standards
+  - V 2.0 Built 11/01/2023 to ***EXCEEDS EXPECTATIONS*** standards
 - Team Treehouse - Full Stack JavaScript TechDegree - Project 1
-  - Submitted 01/20/2023 ***EXCEEDS EXPECTATIONS***
+  - V 1.0 Submitted 01/20/2023 ***EXCEEDS EXPECTATIONS***
 - Team Treehouse - Web Development TechDegree - Project 4
-  - Submitted 05/09/2022 ***EXCEEDS EXPECTATIONS***
+  - V 1.0 Submitted 05/09/2022 ***EXCEEDS EXPECTATIONS***
 
 </br>
 </br>

@@ -38,6 +38,9 @@
 </br>
 
 `|| *** ----- VERSIONS ----- *** ||`
+---2.2--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
+  - *SYSTEM UPDATES*
+    - - Documentation organized and updated.
 
 ---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*
@@ -69,7 +72,7 @@
 
 </br>
 
----1.0--- &nbsp; &nbsp; &nbsp; 05/09/2022 &nbsp; &nbsp; &nbsp; *[init_submits]*
+---1.0--- &nbsp; &nbsp; &nbsp; 05/09/2022
   - *NEW FEATURES*: 
     - Quotes are able to be changed via the 'Show another quote' button at the top of the page.
     - Quotes automatically refresh without any user interaction every 30 seconds.

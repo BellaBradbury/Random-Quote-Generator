@@ -40,7 +40,8 @@
 `|| *** ----- VERSIONS ----- *** ||`
 ---2.2--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *SYSTEM UPDATES*
-    - - Documentation organized and updated.
+    - Documentation organized and updated.
+    - Data maintenance test refactored for optimization and maintenance purposes.
 
 ---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*

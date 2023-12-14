@@ -85,7 +85,7 @@ function getRandomColor() {
   let b = getRandomVal(255, 3);
 
   const colorLum = getLuminance(r, g, b);  
-  if (colorLum > 0.33333) {
+  if (colorLum > 0.25) {
     styleTag.innerHTML = lightStyles;
   } else {
     styleTag.innerHTML = darkStyles;
@@ -103,15 +103,16 @@ function getRandomQuote() {
 
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------- PAGE CONTENT */
 // CREATES PAGE HTML & CSS 
-function createQuote() {
+function createQuote(init=null) {
   const randNum = getRandomQuote();
   const quote = quotes[randNum];
-  const color = getRandomColor();
+  let color;
+  init ? color = 'rgb(17, 60, 30)' : color = getRandomColor(); 
   body.style.backgroundColor = color;
   
   let htmlBlock = `
-    <p class="quote">${quote.quote}</p>
-    <p class="source">${quote.source}
+    <p class="quote" aria-label="Quote">${quote.quote}</p>
+    <p class="source" aria-label="Citation">${quote.source}
   `;
   if (quote.citation) {
     htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;
@@ -147,7 +148,7 @@ function printQuote() {
 /* ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- --- EVENTS */
 // ALLOWS SCREEN 200PX-320PX TO ENTER SITE
 document.getElementById('enter-site').addEventListener('click', (e) => {
-  let htmlBlock = createQuote();
+  let htmlBlock = createQuote(true);
   quoteCot.innerHTML = htmlBlock;
 
   setTimeout(function() {
@@ -162,14 +163,13 @@ document.getElementById('enter-site').addEventListener('click', (e) => {
 
 // SETS STANDARD PAGE IF SCREEN IS 320PX OR WIDER
 if (screen.width >= 320) {
-  let htmlBlock = createQuote();
+  let htmlBlock = createQuote(true);
   quoteCot.innerHTML = htmlBlock;
   startTimer()
 }
 
 // REFRESHES PAGE UPON USER 'SHOW ANOTHER' CLICK
 newBtn.addEventListener("click", (e => {
-  printQuote();
   if (stopBtn.style.display === 'flex') {
     stopTimer();
     printQuote();

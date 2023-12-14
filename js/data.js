@@ -164,5 +164,5 @@ function dataTests(list, item=null, len=null) {
   findTooLong()
 }
 // COMMENT CODE IN/OUT TO ENABLE/DISABLE TEST
-dataTests(quotes, `quote`, 75);
+// dataTests(quotes, `quote`, 75);
 

@@ -110,8 +110,8 @@ function createQuote() {
   body.style.backgroundColor = color;
   
   let htmlBlock = `
-    <p class="quote">${quote.quote}</p>
-    <p class="source">${quote.source}
+    <p class="quote" aria-label="Quote">${quote.quote}</p>
+    <p class="source" aria-label="Citation">${quote.source}
   `;
   if (quote.citation) {
     htmlBlock += `<span class="citation add-prop">${quote.citation}</span>`;

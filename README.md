@@ -37,10 +37,9 @@
 </br>
 </br>
 
-![Lighthouse Grade of 100 (highest score) in the Performance, Accessibility, Best Practices, & SEO categories.](img/12.14.23-lighthouse_grade.png)
-
 `|| *** ----- VERSIONS ----- *** ||`
----2.2--- &nbsp; &nbsp; &nbsp; 12/13/2023
+
+---2.2--- &nbsp; &nbsp; &nbsp; 12/14/2023
   - *SYSTEM UPDATES*
     - Documentation organized and updated.
     - Data maintenance tests refactored.
@@ -50,6 +49,8 @@
     - App now includes a SEO description.
   - *BUG FIXES*
     - Upon initial page load, previously flashing the 'default' color before transitioning to a random color, the page keeps the 'default' color until the next quote refresh.
+
+</br>
 
 ---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*
@@ -86,6 +87,16 @@
     - Quotes are able to be changed via the 'Show another quote' button at the top of the page.
     - Quotes automatically refresh without any user interaction every 30 seconds.
     - A new quote will always print with a new background color regardless of why the content refreshed.
+
+</br>
+</br>
+</br>
+
+`|| *** ----- SITE AUDITING RESULTS ----- *** ||`
+
+--- Lighthouse : Chrome Dev Tools : v2.2 : 12/14/2023
+
+![Lighthouse grade of 'Perfect' in the Performance, Accessibility, Best Practices, & SEO categories.](img/12.14.23-lighthouse_grade.png)
 
 </br>
 </br>

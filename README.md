@@ -40,7 +40,11 @@
 `|| *** ----- VERSIONS ----- *** ||`
 ---2.2--- &nbsp; &nbsp; &nbsp; *IN PROGRESS*
   - *SYSTEM UPDATES*
-    - - Documentation organized and updated.
+    - Documentation organized and updated.
+    - Data maintenance tests refactored.
+    - Increased accessibility via custom labels.
+    - CSS and JS minified for faster page loading.
+    - New 'build' branch allows for minification of code sent to browser branch.
 
 ---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*

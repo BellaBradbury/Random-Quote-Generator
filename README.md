@@ -37,6 +37,8 @@
 </br>
 </br>
 
+![Lighthouse Grade of 100 (highest score) in the Performance, Accessibility, Best Practices, & SEO categories.](img/12.14.23-lighthouse_grade.png)
+
 `|| *** ----- VERSIONS ----- *** ||`
 ---2.2--- &nbsp; &nbsp; &nbsp; 12/13/2023
   - *SYSTEM UPDATES*
@@ -46,6 +48,8 @@
     - CSS and JS minified for faster page loading.
     - New 'build' branch allows for minification of code sent to browser branch.
     - App now includes a SEO description.
+  - *BUG FIXES*
+    - Upon initial page load, previously flashing the 'default' color before transitioning to a random color, the page keeps the 'default' color until the next quote refresh.
 
 ---2.1--- &nbsp; &nbsp; &nbsp; 11/15/2023
   - *NEW FEATURES*
